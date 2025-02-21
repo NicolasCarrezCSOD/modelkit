@@ -21,6 +21,7 @@ logger = get_logger(__name__)
 class DistantHTTPModelError(Exception):
     def __init__(self, status_code, reason, text):
         super().__init__(f"Service model error [{status_code} {reason}]: {text}")
+        self.status_code = status_code
 
 
 def log_after_retry(retry_state):
